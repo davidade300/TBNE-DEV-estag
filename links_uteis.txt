@@ -1,0 +1,12 @@
+// @see https://tdn.totvs.com/display/tec/DBSelectArea (DBSELECTAREA)
+// @see https://tdn.totvs.com/display/tec/Select (SELECT)
+// @see https://tdn.totvs.com/pages/releaseview.action?pageId=6814927 (rpcSetEnv)
+// @see https://tdn.totvs.com/display/tec/DBUseArea
+// @see https://tdn.totvs.com/display/tec/DBSetIndex
+// @see https://tdn.totvs.com/display/tec/Comando+USE
+// @see https://tdn.totvs.com/display/public/framework/DBSetOrder
+// @see https://tdn.totvs.com/display/public/framework/DBSeek
+// @see https://tdn.totvs.com/display/tec/dbskip
+// @see https://tdn.totvs.com/display/tec/dbgoto
+// @see https://tdn.totvs.com/display/tec/dbgotop
+// @see https://tdn.totvs.com/display/tec/dbgobottom

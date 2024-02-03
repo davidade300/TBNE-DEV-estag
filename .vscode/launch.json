@@ -1,0 +1,80 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "totvs_language_debug",
+			"request": "launch",
+			"name": "TOTVS Language Debug",
+			"program": "${command:AskForProgramName}",
+			"cwb": "D:\\Workspace",
+			"smartclientBin": "C:\\TOTVS\\Protheus2310\\Protheus\\bin\\smartclient\\smartclient.exe",
+			"isMultiSession": true,
+			"enableTableSync": true,
+			"enableMultiThread": true
+		}
+	],
+	"lastPrograms": [
+		{
+			"label": "BAHIANO"
+		},
+		{
+			"label": "BAHIANO2"
+		},
+		{
+			"label": "Ola"
+		},
+		{
+			"label": "SIGACFG"
+		},
+		{
+			"label": "U_Ola"
+		},
+		{
+			"label": "Ola2"
+		},
+		{
+			"label": "U_Ola2"
+		},
+		{
+			"label": "U_ESTAG010"
+		},
+		{
+			"label": "sigafat"
+		},
+		{
+			"label": "SIGAATF"
+		},
+		{
+			"label": "Teste"
+		},
+		{
+			"label": "U_Teste"
+		},
+		{
+			"label": "SelectArea"
+		},
+		{
+			"label": "U_SelectArea"
+		},
+		{
+			"label": "U_UseArea"
+		},
+		{
+			"label": "SIGACOM"
+		},
+		{
+			"label": "U_GATNASC"
+		},
+		{
+			"label": "U_OrdEBusca"
+		},
+		{
+			"label": "U_OrdEBusca2"
+		},
+		{
+			"label": "U_2OrdEBusca"
+		}
+	],
+	"lastProgramExecuted": "U_2OrdEBusca",
+	"lastProgramArguments": []
+}

@@ -1,0 +1,31 @@
+Componentes disponiveis por area de trabalho:
+    Tabelas de banco de dados relacionais
+    arquivos de bancos não relacionais
+    arquivos temporarios de dados
+    resultado de consultas sql
+    leitura de arquivo de texto
+
+Identificação por meio de um alias:
+    > SA1, SA2, SB1, AA1...(tabelas de banco de dados)
+    > TRB,...(arquivos de trabalho temporarios)
+    > SCN00001, ... (Consultas SQL)
+
+Campos de tabelas do banco de dados são definidos de acordo com o alias:
+    > SA1 -> cadastro de clientes -> A1_EMAIL : email do cliente
+
+Possuem um RDD (Replaceable Database Drivers):
+    > Topconn  (comunicação com RDB por meio do DBACCESS)
+    > DBFCDX   (comunicação com arquivo fisicos no padrão DBF)
+    > SQLITE   (comunicação com bancos de dados SQLITE)
+    > CTREECDX (comunicação com arquivos fisicos no padrão CTREE)
+
+- Não Possuem relacionamentos por chave estrangeira
+- Possuem inidices diversos, sendo um unico definido com chave primaria baseada no RECNO(R_E_C_N_O)
+- Indices sempre devem levar em conta o campo filial da tabela (A1_FILIAL+A1_COD+A1_...)
+- Não trabalham com deleção fisica por padrão:
+    > Controle feito atraves de D_E_L_E_T e R_E_C_D_E_L
+- Interações são feitas por meio de funções ADVPL/TLPP
+    > DBselectarea
+    > DBsetorder
+    > DBusearea
+    > DBsee, Msseek -> chave de busca de acordo com o Indice que está definido
