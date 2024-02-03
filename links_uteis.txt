@@ -10,3 +10,5 @@
 // @see https://tdn.totvs.com/display/tec/dbgoto
 // @see https://tdn.totvs.com/display/tec/dbgotop
 // @see https://tdn.totvs.com/display/tec/dbgobottom
+// @see https://tdn.totvs.com/pages/releaseview.action?pageId=24347041 (reclock)
+// @see https://tdn.totvs.com/pages/releaseview.action?pageId=24347005 (msunlock)

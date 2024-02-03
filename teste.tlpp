@@ -1,0 +1,42 @@
+#include 'totvs.ch'
+
+User Function 2Teste
+
+    RpcSetEnv( "99","01")
+
+    Local nQuantidadeDeRegistros as numeric
+    local cListaDeFornecedores as character
+
+    // bof() --> Indica que o ponteiro da area de trabalho está posicionado no inicio do arquivo
+    // eof() --> inidica que o ponteiro da area de trabalho está posicionado no final do arquivo
+    // CRLF --> "CARRIAGE RETURN LINE FEED" : AVANÇA PARA A PROXIMA LINHA
+
+    SA2 -> (dbSetOrder(1),dbGoTop())
+
+    while .T.
+
+        nQuantidadeDeRegistros++
+        SA2->(dbSkip())
+
+        If SA2->(eof())
+            Exit
+        Endif
+
+    enddo
+
+    while .T.
+
+        cListaDeFornecedores += CRLF + SA2->A2_NOME
+        SA2->(dbSkip(-1))
+
+        IF SA2->(bof())
+            Exit
+        Endif
+    enddo
+
+
+    fwAlertInfo("Quantidade de Registros: " + cValToChar(nQuantidadeDeRegistros) + CRLF + cListaDeFornecedores)
+
+    RPcClearEnv()
+
+Return 
