@@ -1,4 +1,5 @@
 #include 'totvs.ch'
+#INCLUDE 'topconn.ch'
 
 /*/{Protheus.doc} nomeFunction
 (long_description)
@@ -13,7 +14,7 @@
 @see (links_or_references)
 /*/
 User Function ESTAG010
-
+	
     Local cAlias := "ZA1"
 
     Private cCadastro := "Cadastro de Pessoas estag"
@@ -25,6 +26,7 @@ User Function ESTAG010
     AADD(aRotina, { "Incluir"      , "AxInclui"   , 0, 3 })
     AADD(aRotina, { "Alterar"     , "AxAltera"  , 0, 4 })
     AADD(aRotina, { "Excluir"     , "AxDeleta" , 0, 5 })
+    //AADD(aRotina, {  "Relatorio",      " funcaodorelatorio",   0,6})
 
     dbSelectArea(cAlias)
     dbSetOrder(1)
@@ -32,3 +34,4 @@ User Function ESTAG010
     mBrowse(6, 1, 22, 75, cAlias)
 
 return
+

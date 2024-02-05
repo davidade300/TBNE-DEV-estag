@@ -12,3 +12,4 @@
 // @see https://tdn.totvs.com/display/tec/dbgobottom
 // @see https://tdn.totvs.com/pages/releaseview.action?pageId=24347041 (reclock)
 // @see https://tdn.totvs.com/pages/releaseview.action?pageId=24347005 (msunlock)
+// @see https://tdn.totvs.com/display/tec/FCreate

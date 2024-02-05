@@ -2,6 +2,8 @@
 
 /*/{Protheus.doc} GATNASC
 Funcao gatilho para o campo idade da rotina ESTAG010
+Funcao está em desuso e o gatilho correspondente foi configurado no SIGACFG, ZA1_DOB
+--> INT(DateDiffDay(DATE(), M->ZA1_DOB)/365)
 @type user function
 @author David
 @since 02/02/2024
@@ -14,7 +16,7 @@ User Function GATNASC()
     dbSelectArea("ZA1")
     
     reclock("ZA1", .F.)
-        nData := DateDiffDay(DATE(),ZA1_DOB)
+        nData := DateDiffDay(DATE(),M->ZA1_DOB)
         ZA1->ZA1_IDADE := INT(nData)
     msunlock()
 
