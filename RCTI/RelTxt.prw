@@ -43,7 +43,7 @@ Return Nil
 Static Function GeraArq()
 
 Local cDir := "C:\TOTVS 12\Microsiga\protheus_data\treport\"
-Local cArq := "arquivo2.txt"
+Local cArq := "arquivo2.csv"
 Local nHandle := FCreate(cDir+cArq)
 
 	If nHandle < 0 
@@ -52,7 +52,7 @@ Local nHandle := FCreate(cDir+cArq)
 	Else
 		While TMP->(!EOF())
 		
-		FWrite(nHandle, TMP->(FILIAL)+ " | " + TMP->(CODIGO) + " | " + TMP->(DESCRICAO) + CRLF)
+		FWrite(nHandle, TMP->(FILIAL)+ " ; " + TMP->(CODIGO) + " ; " + TMP->(DESCRICAO) + CRLF)
 		TMP->(dbSkip())
 		
 		EndDo
@@ -67,7 +67,7 @@ Local nHandle := FCreate(cDir+cArq)
 	
 	EndIf
 
-	If FILE("C:\TOTVS 12\Microsiga\protheus_data\treport\arquivo2.txt")
+	If FILE("C:\TOTVS 12\Microsiga\protheus_data\treport\arquivo2.csv")
 		MsgInfo("Arquivo criado com sucesso!")
 	Else
 		MsgAlert("Não foi possivel criar o arquivo", "ALERTA")

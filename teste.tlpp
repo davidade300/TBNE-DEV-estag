@@ -5,37 +5,39 @@ User Function 2Teste
     RpcSetEnv( "99","01")
 
     Local nQuantidadeDeRegistros as numeric
-    local cListaDeFornecedores as character
+    local cLista as character
 
     // bof() --> Indica que o ponteiro da area de trabalho está posicionado no inicio do arquivo
     // eof() --> inidica que o ponteiro da area de trabalho está posicionado no final do arquivo
     // CRLF --> "CARRIAGE RETURN LINE FEED" : AVANÇA PARA A PROXIMA LINHA
 
-    SA2 -> (dbSetOrder(1),dbGoTop())
+    ZA1 -> (dbSetOrder(1),dbGoTop())
 
     while .T.
 
         nQuantidadeDeRegistros++
-        SA2->(dbSkip())
+        ZA1->(dbSkip())
 
-        If SA2->(eof())
+        If ZA1->(eof())
             Exit
         Endif
 
     enddo
 
+    ZA1->(dbGoTop())
+    
     while .T.
 
-        cListaDeFornecedores += CRLF + SA2->A2_NOME
-        SA2->(dbSkip(-1))
+        cLista += CRLF + ZA1->ZA1_NOME
+        ZA1->(dbSkip())
 
-        IF SA2->(bof())
+        IF ZA1->(eof())
             Exit
         Endif
     enddo
 
 
-    fwAlertInfo("Quantidade de Registros: " + cValToChar(nQuantidadeDeRegistros) + CRLF + cListaDeFornecedores)
+    fwAlertInfo("Quantidade de ESTAGIARIOS: " + cValToChar(nQuantidadeDeRegistros) + CRLF + cLista)
 
     RPcClearEnv()
 
