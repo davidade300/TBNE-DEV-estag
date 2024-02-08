@@ -13,3 +13,10 @@
 // @see https://tdn.totvs.com/pages/releaseview.action?pageId=24347041 (reclock)
 // @see https://tdn.totvs.com/pages/releaseview.action?pageId=24347005 (msunlock)
 // @see https://tdn.totvs.com/display/tec/FCreate
+// @see https://tdn.totvs.com/display/tec/tcsetfield
+// @see https://tdn.totvs.com/display/tec/TCGenQry
+// @see https://tdn.totvs.com/display/tec/TCSetField
+// @see https://tdn.totvs.com/display/tec/Comando+TCQUERY
+// @see https://tdn.totvs.com/display/public/framework/Embedded+SQL
+// @see https://tdn.totvs.com/display/public/framework/Desenvolvendo+queries+no+Protheus (para uso com Embedded SQL)
+// @see https://tdn.totvs.com/display/tec/DBEVal (para percorrer queries )

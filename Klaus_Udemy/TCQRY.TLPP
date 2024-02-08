@@ -1,0 +1,27 @@
+#include 'totvs.ch'
+// TCQUERY so funciona com o include abaixo
+#include 'topconn.ch'
+/*/{Protheus.doc} TCQRY
+Exemplo de query sql utilizando TCQUERY
+@type user function
+@author David
+@since 08/02/2024
+@version 1.0
+/*/
+User Function TCGenQry
+
+    rpcSetEnv('99','01')
+
+    aDados := array(0)
+    cSQL := "SELECT ZA1_DOB, ZA1_PESO, ZA1_IDADE, ZA1_NOME, D_E_L_E_T_ AS DELETADOS FROM ZA1990"
+
+    TCQUERY cSQL NEW ALIAS QRY
+    TCSetField("QRY","ZA1_DOB","D",8,0)
+    
+
+    //DBEVAL --> EXECUTA UM BLOCO DE CODIGO PARA CADA LINHA DA AREA DE TRABALHO
+    QRY->(DBEval({||AAdd(aDados,{ZA1_DOB,ZA1_NOME,ZA1_IDADE,ZA1_PESO,DELETADOS})}))
+
+    rpcClearEnv()
+
+Return 

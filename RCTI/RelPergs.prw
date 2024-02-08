@@ -1,4 +1,4 @@
-User Function TrptZA2()
+User Function TrptZA22()
 
     Local oReport
     //Local cAlias := getNextAlias()

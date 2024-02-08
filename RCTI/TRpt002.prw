@@ -21,9 +21,9 @@ Static Function RPrint(oReport)
     local cNumEst := ""
     local cQuery := ""
 
-    cQuery += "ZA1_COD, ZA1_DESC, ZA1_NOME, ZA1_DOB, ZA1_IDADE, ZA1_PESO "
+    cQuery += "SELECT ZA1_COD, ZA1_DESC, ZA1_NOME, ZA1_DOB, ZA1_IDADE, ZA1_PESO "
     cQuery += "FROM ZA1990 "
-    cQuery += "WHERE D_E_L_E_T_ = '' AND ZA1_IDADE = '"+MV_PAR01+"' "
+    cQuery += "WHERE D_E_L_E_T_ = '' AND ZA1_IDADE = '"+MV_PAR01+"' ;"
 
     //VERIFICA SE A TABELA JÁ ESTÁ ABERTA.
 

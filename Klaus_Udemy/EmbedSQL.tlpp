@@ -1,0 +1,36 @@
+#include 'totvs.ch'
+
+/*/{Protheus.doc} EmbedSQL
+(long_description)
+@type user function
+@author David
+@since 08/02/2024
+@version 1.0
+/*/
+User Function EmbedSQL
+
+    rpcSetEnv('99','01')
+
+    aDados := array(0)
+        //começo do embedded sql
+        BeginSql Alias 'QRY'
+            // TRANSFORMA O CAMPO EM DATA PARA USO DA %EXP:DATE()%
+            COLUMN ZA1_DOB AS DATE
+            SELECT ZA1_NOME,ZA1_IDADE,ZA1_DOB,ZA1_PESO, D_E_L_E_T_ AS DELETADOS
+            //FROM ZA1990
+            //%table:% é substituída por RetSqlName()
+            FROM %table:ZA1% ZA1
+            // elimina os registro excluidos
+            WHERE ZA1.%notDel%
+            // retorna o conteudo correto do campo filial de acordo com a empresa e filial que estivermos logados.
+            AND ZA1_FILIAL = %xFilial:ZA1%
+            // para passar um parametro de fora para um campo basta usar a %exp:expressao% 
+            AND ZA1_DOB <= %exp:Date()%
+            ORDER BY ZA1_NOME
+        EndSql
+
+    QRY->(DBEval({|| AAdd(aDados,{ZA1_NOME,ZA1_IDADE,ZA1_DOB,ZA1_PESO})}))
+
+    rpcClearEnv()
+
+Return 

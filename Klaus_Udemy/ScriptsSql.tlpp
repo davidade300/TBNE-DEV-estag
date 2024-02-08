@@ -1,0 +1,32 @@
+#include 'totvs.ch'
+/*/{Protheus.doc} QuerySQL
+@type user function
+@author David 
+@since 08/02/2024
+@version 1.0
+@see (links_or_references)
+/*/
+User Function QuerySQL
+
+    Local cSQL := ''
+    Local  aDados := Array(0)
+    
+    rpcSetEnv('99','01')
+
+        cSQL = "SELECT ZA1_COD, ZA1_DESC, ZA1_DOB, ZA1_IDADE FROM ZA1990 WHERE D_E_L_E_T_ = ' '"
+
+        DBUseArea(.T.,"TOPCONN",TCGenQry(,,cSQL),"QRY",.T.,.F.)
+        //CONVERTE UM CAMPO DE UMA AREA DE TRABALHO PARA OUTRO TIPO(D-->DATA)
+        //TCSetField("QRY","ZA1_DOB","D",8,0)
+
+
+        while !QRY->(eof())
+            // ADICIONA O RESULTADO DA QRY AO VETOR aDados e pula para a proxima linha
+            QRY->(AAdd(aDados,{ZA1_COD,ZA1_DESC,ZA1_DOB,ZA1_IDADE}),DBSkip())
+        Enddo
+
+        QRY->(DBCloseArea())
+
+    rpcClearEnv()
+
+Return aDados
