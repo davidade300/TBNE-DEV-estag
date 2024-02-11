@@ -20,3 +20,9 @@
 // @see https://tdn.totvs.com/display/public/framework/Embedded+SQL
 // @see https://tdn.totvs.com/display/public/framework/Desenvolvendo+queries+no+Protheus (para uso com Embedded SQL)
 // @see https://tdn.totvs.com/display/tec/DBEVal (para percorrer queries )
+// @see https://tdn.totvs.com/display/tec/tcsqlexec
+// @see https://tdn.totvs.com/display/tec/tcsqlerror
+// @see https://tdn.totvs.com/display/public/framework/Criatrab-+Retorna+arquivo+de+trabalho
+// @see https://tdn.totvs.com/display/tec/DBCreateIndex
+// @see https://tdn.totvs.com/display/tec/File
+// @see https://tdn.totvs.com/display/tec/FErase

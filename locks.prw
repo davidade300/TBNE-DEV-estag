@@ -7,22 +7,22 @@ User Function locks
     //reclock() --> Utilizado para reservar um registro para alteração ou para indicarque sera executada uma inclusao
     //msunlock() --> Utilizado para destravar e confirmar a inclusão/alteração do registro
 
-    SA2 ->(dbSetOrder(1),dbGoTop())
+    ZA1->(dbSetOrder(1),dbGoTop())
 
-    while .not. SA2->(eof())
+    while .not. ZA1->(eof())
 
-        SA2->(reclock("SA2",.F.))
+        ZA1->(reclock("ZA1",.F.))
         // .T. indica inclusão
         // .F. indica alteração
-            SA2->A2_NREDUZ := LEFT(SA2->A2_NOME,AT(" ",SA2->A2_NOME))
-        SA2->(msunlock())
+            ZA1->ZA1_NOME := LEFT(ZA1->ZA1_NOME,AT(" ",ZA1->A2_NOME))
+        ZA1->(msunlock())
         //destrava o registro após alteração
 
-        SA2->(dbSkip())
+        ZA1->(dbSkip())
     enddo
 
     // dbCloseArea --> Indica que a area de trabalho deve ser encerrada
-    SA2->(dbCloseArea())
+    ZA1->(dbCloseArea())
     
 
 

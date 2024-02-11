@@ -1,0 +1,27 @@
+#include 'Totvs.ch'
+
+/*/{Protheus.doc}  NoSQlRel
+(long_description)
+@type user function
+@author David       
+@since 11/02/2024
+@version version 1.0
+/*/
+User Function NoSQlRel2
+rpcSetEnv('99','01')
+
+    Public pseudoQry
+    Public aDados := Array(0)
+
+    
+    ZA1->(dbSetOrder(0),dbGoTop())
+
+    // Parsea a tabela ZA1 e adiciona os dados dos seus campos ao arra aDados
+    while !ZA1->(eof())
+        ZA1->(DBEval({||AAdd(aDados,{ZA1_DOB,ZA1_NOME,ZA1_IDADE,ZA1_PESO})}))
+        ZA1->(dbSkip())   
+    Enddo
+    
+rpcClearEnv()
+Return 
+

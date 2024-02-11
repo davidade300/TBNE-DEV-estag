@@ -1,0 +1,19 @@
+#include 'Totvs.ch'
+
+/*/{Protheus.doc} CriaArea
+(long_description)
+@type user function
+@author David
+@since 09/02/2024
+@version version
+@see (links_or_references)
+/*/
+User Function CriaArea
+
+    rpcSetEnv('99','01')
+
+        
+
+    rpcClearEnv()
+
+Return

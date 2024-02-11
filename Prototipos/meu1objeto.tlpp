@@ -1,0 +1,14 @@
+#include 'totvs.ch'
+
+
+
+class minhaclasse 
+static method meumetodoestatico()
+endclass
+method meumetodoestatico() class minhaclasse
+return 'xisto'
+
+user function chamandometodoestatico
+FWAlertError(minhaclasse():meumetodoestatico)
+Return
+
