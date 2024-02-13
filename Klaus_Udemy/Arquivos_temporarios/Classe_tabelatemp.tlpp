@@ -33,6 +33,28 @@ Function U_FWTabelaTemp
             DBSkip()
         Enddo
 
+
+        DBSelectArea('SA2')
+        DBSetOrder(1)
+
+        while !eof()
+            (cAliasTemp)->(reclock(alias(),.T.), CODIGO = SA2->A2_COD,;
+            LOJA := SA2->A2_LOJA, NOME := SA2->A2_NOME, ENTIDADE := SA2->(alias()),msunlock())
+            DBSkip()
+        Enddo
+
+        cTxT := "ENTIDADE;CODIGO;LOJA;NOME"
+
+        (cAliasTemp)->(DBSetOrder(1),DBEval({|| cTxT += CRLF + ENTIDADE + ';' + CODIGO + ';' + LOJA + ';' + NOME }))
+
+        Carquivo := "D:\Workspace\Klaus_Udemy\Arquivos_temporarios\ListaEntidades.csv"
+
+        // CRIA UM ARQUIVO (ARQUIVO CRIADO, CONTEUDO DO ARQUIVO)
+        lArquivo := MemoWrite(Carquivo,cTxT)
+
+        (cAliasTemp)->(DBCloseArea())
+        oTempTable:Delete()
+
     rpcClearEnv()
 
 Return 

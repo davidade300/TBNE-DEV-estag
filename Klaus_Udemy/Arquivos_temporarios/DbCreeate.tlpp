@@ -1,0 +1,58 @@
+#include 'totvs.ch'
+
+
+Function U_DbCreeate
+
+    rpcSetEnv('99','01')
+
+        aCampos := {{"ENTIDADE","C",3,0},{"CODIGO","C",6,0},{"LOJA",'C',2,0},{"NOME",'C',30,0},{"DOB",'D',8,0}}
+        cAliasTab := "TAB_ENTIDADES"
+
+        IF TCCanOpen(cAliasTab)
+            TCDelFile(cAliasTab)
+        Endif
+
+        DBCreate(cAliasTab,aCampos,"TOPCONN")
+        DBUseArea(.T.,"TOPCONN",cAliasTab,cAliasTab,.T.,.F.)
+        DBCreateIndex(cAliasTab+'1',"CODIGO+LOJA+ENTIDADE",{|| CODIGO+LOJA+ENTIDADE})
+        DBSetIndex(cAliasTab+'1')
+
+        SA1->(DBSetOrder(1))
+
+        while !SA1->(eof())
+
+            DBAppend()
+
+                ENTIDADE := "SA1"
+                CODIGO := SA1->A1_COD
+                LOJA := SA1->A1_LOJA
+                NOME := SA1->A1_NOME
+                DOB := SA1->A1_DTNASC
+                
+            DBCommit()
+
+            SA1->(DBSkip())
+
+        Enddo
+
+        SA2->(DBSetOrder(1))
+
+        while !SA2->(eof())
+
+            DBAppend()
+
+                ENTIDADE := "SA2"
+                CODIGO := SA2->A2_COD
+                LOJA := SA2->A2_LOJA
+                NOME := SA2->A2_NOME
+                DOB := SA2->A2_DTNASC
+                
+            DBCommit()
+
+            SA2->(DBSkip())
+
+        Enddo
+
+    rpcClearEnv()
+
+Return

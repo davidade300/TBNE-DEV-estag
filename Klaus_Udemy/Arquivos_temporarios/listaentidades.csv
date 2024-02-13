@@ -1,0 +1,20 @@
+ENTIDADE;CODIGO;LOJA;NOME
+SA2;      ;  ;                              
+SA1;      ;00;ALRIELLEN TRANSFERENCIA       
+SA2;      ;00;FORNECEDOR TRANSFERENCIA      
+SA2;      ;00;UNIAO                         
+SA1;      ;01;CLIENTE PADRAO                
+SA1;      ;01;AENCIO SILVA                  
+SA1;      ;01;ALRIELLEN SILVA               
+SA1;      ;01;ALRIELLEN TRANSFERENCIA  2    
+SA2;      ;01;TENDE TUDO FORNECEDORES       
+SA2;      ;01;FORNECEDOR TRANSFERENCIA      
+SA1;      ;1 ;JOSÉ PAULINO DA COSTA         
+SA1;      ;1 ;ALRICELIA SILVA DA COSTA      
+SA1;      ;1 ;SONIA MARIA DA SILVA          
+SA2;      ;1 ;CACAU SHOW                    
+SA2;      ;1 ;CACAU SHOW                    
+SA1;      ;99;CLIENTETESTE                  
+SA1;      ;99;CLIENTETESTE2                 
+SA2;      ;99;FORNECEDOR TESTE              
+SA2;      ;99;TESTE2                        

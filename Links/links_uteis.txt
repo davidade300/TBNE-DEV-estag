@@ -27,3 +27,11 @@
 // @see https://tdn.totvs.com/display/tec/File
 // @see https://tdn.totvs.com/display/tec/FErase
 // @see https://tdn.totvs.com/display/public/framework/fwtemporarytable
+// @see https://tdn.totvs.com/display/tec/MemoWrite
+// @see https://tdn.totvs.com/display/tec/TCCanOpen
+// @see https://tdn.totvs.com/display/tec/TCDelFile
+// @see https://tdn.totvs.com/display/tec/DBCreate
+// @see https://tdn.totvs.com/display/tec/DBCreateIndex
+// @see https://tdn.totvs.com/display/tec/DBAppend
+// @see https://tdn.totvs.com/display/tec/DBCommit
+// @see https://tdn.totvs.com/display/tec/DBSetIndex
