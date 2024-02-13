@@ -1,0 +1,20 @@
+#include 'Totvs.ch'
+/* 
+Metodo que percorre uma array como se fosse uma query
+*/
+
+class ArrayUtil
+    static method ParseArray(aDados)
+endclass
+
+method ParseArray(aDados) class ArrayUtil
+    private i := 0
+
+    index1 := Array(0)
+
+    // for indice in Len(aDados)
+    //     AAdd(ak,aDados[i][1])
+    //     i += 1
+    // next
+
+return

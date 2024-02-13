@@ -1,0 +1,38 @@
+#include 'totvs.ch'
+
+/*/{Protheus.doc} FWTabelaTemp
+(long_description)
+@type user function
+@author David
+@since 12/02/2024
+@version 1.0
+/*/
+Function U_FWTabelaTemp
+
+    Local oTempTable as object
+    Local cAliasTemp as character
+    Local cRealName  as character
+
+    rpcSetEnv('99','01')
+
+        cAliasTemp := 'TRBSA1SA2'
+
+        oTempTable := fwTemporaryTable():new(cAliasTemp)
+        oTempTable:setFields({{"ENTIDADE","C",3,0},{"CODIGO","C",6,0},{"LOJA","C",2,0},{"NOME","C",30,0}})
+        oTempTable:addIndex("IND_1",{"CODIGO","LOJA","ENTIDADE"})
+        oTempTable:create()
+
+        cRealName := oTempTable:getRealName()
+
+        DBSelectArea('SA1')
+        DBSetOrder(1)
+
+        while !eof()
+            (cAliasTemp)->(reclock(alias(),.T.), CODIGO = SA1->A1_COD,;
+            LOJA := SA1->A1_LOJA, NOME := SA1->A1_NOME, ENTIDADE := SA1->(alias()),msunlock())
+            DBSkip()
+        Enddo
+
+    rpcClearEnv()
+
+Return 

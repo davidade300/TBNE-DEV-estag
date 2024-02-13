@@ -3,7 +3,6 @@
 
 import requests as re
 
-url = "https://tdn.totvs.com/display/tec/tcsqlerror"
-
+url = "https://www.hbomax.com/"
 resposta = re.get(url)
 print(resposta)

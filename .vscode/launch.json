@@ -73,8 +73,87 @@
 		},
 		{
 			"label": "U_2OrdEBusca"
+		},
+		{
+			"label": "U_2Teste"
+		},
+		{
+			"label": "U_locks"
+		},
+		{
+			"label": "U_relTest"
+		},
+		{
+			"args": [],
+			"label": "U_relTest"
+		},
+		{
+			"label": "Rel1"
+		},
+		{
+			"label": "U_Rel1"
+		},
+		{
+			"args": [],
+			"label": "U_TrptZA1"
+		},
+		{
+			"args": [],
+			"label": "U_Rptstrct"
+		},
+		{
+			"label": "U_QuerySQL"
+		},
+		{
+			"label": "U_TCGenQRY"
+		},
+		{
+			"label": "EmbedSQL"
+		},
+		{
+			"label": "U_EmbedSQL"
+		},
+		{
+			"label": "U_SQLUpdate"
+		},
+		{
+			"label": "U_TCQry"
+		},
+		{
+			"label": "U_NoSQlRel"
+		},
+		{
+			"label": "U_NoSQlRel2"
+		},
+		{
+			"label": "U_chamandometodoestatico"
+		},
+		{
+			"label": "U_CriaArea"
+		},
+		{
+			"label": "U_WORK_ARQUIVO_TEMPORARIO_1"
+		},
+		{
+			"label": "U_WORK_ARQUIVO_TEMPORARIO_2"
+		},
+		{
+			"args": [
+				".T.",
+				null,
+				"cArqTrab",
+				"cArqTrab",
+				".T.",
+				".F.)     dbCreateIndex(cArqTrab+'1'",
+				"CODIGO+LOJA+ENTIDADE",
+				"{|| CODIGO+LOJA+ENTIDADE})     dbSetIndex(cArqTrab+'1'"
+			],
+			"label": "dbUseArea"
+		},
+		{
+			"label": "U_FWTabelaTemp"
 		}
 	],
-	"lastProgramExecuted": "U_2OrdEBusca",
+	"lastProgramExecuted": "U_FWTabelaTemp",
 	"lastProgramArguments": []
 }
