@@ -1,0 +1,51 @@
+#include 'totvs.ch'
+
+/*/{Protheus.doc} FVVFileReader
+(long_description)
+@type user function
+@author David
+@since 15/02/2024
+@version 1.0
+/*/
+Function U_FVVFileReader
+
+    Local cArquivo as character
+    Local cBuffer as character
+    Local cTexto as character
+    Local aLinhas as Array
+    local aDados as Array
+    Local oFile as object
+
+    rpcSetEnv('99','01')
+
+    cArquivo := 'D:\Workspace\Klaus_Udemy\Manipulando_Texto\listaclifor.txt'
+
+    oFile := fwFileReader():new(cArquivo)
+    lOpen := Ofile:open()
+
+    If lOpen           // faz a leituras de uma linha
+
+        While !oFile:eof()
+            cBuffer := oFile:getLine()
+            //cTexto += IF(EMPTY(cTexto),'',CRLF) + cBuffer
+            cTexto += CRLF + cBuffer
+        Enddo
+
+    Else
+
+        FWAlertError(oFile:error():message,'ERRO')
+        rpcClearEnv()
+        Return .F.
+        
+    Endif
+
+    oFile:close()
+
+    aLinhas := StrTokArr(cTexto,CHR(13)+CHR(10))
+    aDados := {}
+    AEval(aLinhas,{|x| AAdd(aDados,StrTokArr(x," "))})
+    ASort(aDados,2,,{|x,y| x[2] + x[1] < y[2] + y[1] })
+
+    rpcClearEnv()
+
+Return

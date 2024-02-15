@@ -45,3 +45,5 @@
 // @see https://tdn.totvs.com/display/tec/Len
 // @see https://tdn.totvs.com/display/tec/StrTokArr
 // @see https://tdn.totvs.com/display/tec/AEVal
+// @see https://tdn.totvs.com/display/public/framework/FWFileReader
+// @see https://tdn.totvs.com/display/tec/ASort

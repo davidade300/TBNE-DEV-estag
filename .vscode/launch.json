@@ -167,8 +167,11 @@
 		},
 		{
 			"label": "U_F0pen"
+		},
+		{
+			"label": "U_FVVFileReader"
 		}
 	],
-	"lastProgramExecuted": "U_F0pen",
+	"lastProgramExecuted": "U_FVVFileReader",
 	"lastProgramArguments": []
 }
