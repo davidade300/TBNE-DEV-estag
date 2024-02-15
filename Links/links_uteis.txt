@@ -12,7 +12,6 @@
 // @see https://tdn.totvs.com/display/tec/dbgobottom
 // @see https://tdn.totvs.com/pages/releaseview.action?pageId=24347041 (reclock)
 // @see https://tdn.totvs.com/pages/releaseview.action?pageId=24347005 (msunlock)
-// @see https://tdn.totvs.com/display/tec/FCreate
 // @see https://tdn.totvs.com/display/tec/tcsetfield
 // @see https://tdn.totvs.com/display/tec/TCGenQry
 // @see https://tdn.totvs.com/display/tec/TCSetField
@@ -24,8 +23,6 @@
 // @see https://tdn.totvs.com/display/tec/tcsqlerror
 // @see https://tdn.totvs.com/display/public/framework/CriaTrab+-+Retorna+arquivo+de+trabalho 
 // @see https://tdn.totvs.com/display/tec/DBCreateIndex
-// @see https://tdn.totvs.com/display/tec/File
-// @see https://tdn.totvs.com/display/tec/FErase
 // @see https://tdn.totvs.com/display/public/framework/fwtemporarytable
 // @see https://tdn.totvs.com/display/tec/MemoWrite
 // @see https://tdn.totvs.com/display/tec/TCCanOpen
@@ -35,3 +32,9 @@
 // @see https://tdn.totvs.com/display/tec/DBAppend
 // @see https://tdn.totvs.com/display/tec/DBCommit
 // @see https://tdn.totvs.com/display/tec/DBSetIndex
+// @see https://tdn.totvs.com/display/tec/FCreate
+// @see https://tdn.totvs.com/display/tec/FWrite
+// @see https://tdn.totvs.com/display/tec/FError
+// @see https://tdn.totvs.com/display/tec/FClose
+// @see https://tdn.totvs.com/display/tec/File
+// @see https://tdn.totvs.com/display/tec/FErase

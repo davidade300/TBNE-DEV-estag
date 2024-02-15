@@ -1,0 +1,59 @@
+#include 'totvs.ch'
+
+
+Function U_CriaTxt
+
+    Local cSaveFile as character
+    Local cBuffer as character
+    Local nBuffer as numeric
+    Local nHandle as numeric
+    Local nWrite as numeric
+
+
+    rpcSetEnv('99','01')
+
+        cSaveFile := 'D:\Workspace\Klaus_Udemy\Manipulando_Texto\ListaCliFor.txt'
+
+        IF File(cSaveFile)
+            FErase(cSaveFile)  
+        Endif
+
+        nHandle := FCreate(cSaveFile)
+
+        If nHandle < 0
+            FWAlertError("Erro ao efetuar a criação do arquivo. Codigo do erro: " + str(FError(),4),"ERRO")
+            rpcClearEnv()
+            Return .F.
+        Endif
+
+        cBuffer := PadR('ENTIDADE',10) + '-' + PadR('CODIGO',6)  + '-' + PadR('LOJA',5) + '-' + PadR('NOME',30) + '-' + PadR('DT_NASCIMENTO',20)
+        nBuffer := Len(cBuffer)
+
+        nWrite := FWrite(nHandle,cBuffer)
+
+        If nWrite <> nBuffer
+            FWAlertError("Erro ao efetuar a gravação do arquivo. Codigo do erro: " + str(FError(),4),"ERRO")
+            FClose(nHandle)
+            rpcClearEnv()
+            Return .F.
+        Endif 
+
+        cBuffer := CRLF + strtran(Space(74)," ","-")
+        nBuffer := Len(cBuffer)
+
+        nWrite := FWrite(nHandle,cBuffer)
+
+        If nWrite <> nBuffer
+            FWAlertError("Erro ao efetuar a gravação do arquivo. Codigo do erro: " + str(FError(),4),"ERRO")
+            FClose(nHandle)
+            rpcClearEnv()
+            Return .F.
+        Endif
+
+        FClose(nHandle)
+
+    rpcClearEnv()
+
+    // continuar a aula aos 20:51
+
+Return

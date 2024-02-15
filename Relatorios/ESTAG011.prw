@@ -1,3 +1,5 @@
+// ESTAG010 COM RELATORIO SEM SQL
+
 #include 'totvs.ch'
 #INCLUDE 'topconn.ch'
 
@@ -11,7 +13,7 @@
 @notes: Relatorio com tela simples usando construtor de query
 /*/
 
-User Function ESTAG010
+User Function ESTAG011
 	
     Public cAlias := "ZA1"
 
@@ -24,7 +26,7 @@ User Function ESTAG010
     AADD(aRotina, { "Incluir"      , "AxInclui"   , 0, 3 })
     AADD(aRotina, { "Alterar"     , "AxAltera"  , 0, 4 })
     AADD(aRotina, { "Excluir"     , "AxDeleta" , 0, 5 })
-    AADD(aRotina, {  "Relatorio",      "U_TrptZA()",   0,6})
+    AADD(aRotina, { "Relatorio",      "U_TrptZA2()",   0,6})
     //AADD(aRotina, {  "Relatorio",      "U_wSQLRel",   0,6})
 
     dbSelectArea(cAlias)
@@ -36,10 +38,9 @@ return
 
 
 
-User Function TrptZA()
+User Function TrptZA4()
 
     Local oReport
-    //Local cAlias := getNextAlias()
 
     oReport:= Rptstrct(cAlias)
 
@@ -47,25 +48,23 @@ User Function TrptZA()
 
 Return
 
-
-
 Static Function RPrint(oReport, cAlias)
 
     Local oSecao1 := oReport:Section(1)
 
-    oSecao1:BeginQuery()
+    oSecao1:init()
+    oSecao1:PrintLine()
 
-        BeginSQL Alias cAlias
+    ZA1->(DBGoTop())
 
-            Select ZA1_COD, ZA1_DESC, ZA1_NOME, ZA1_DOB, ZA1_PESO
-            FROM %Table:ZA1% ZA1
-            WHERE D_E_L_E_T_ =''
+    While !ZA1->(eof())
+        oSecao1:PrintLine()
+        ZA1->(DBSkip())
+    Enddo
 
-        EndSQL
-    oSecao1:EndQuery()
-    oReport:SetMeter((cAlias)->(RecCount()))
+    oSecao1:Finish()
 
-    oSecao1:Print()
+    oReport:EndPage()
 
 Return
 
@@ -80,7 +79,6 @@ Static Function Rptstrct(cAlias)
     // Instanciando a classe TReport
     oReport := TReport():New("RelTrep",cTitulo,/*pergunta*/,{|oReport|RPrint(oReport, cAlias)},cHelp)
 
-    
     oSection1 := TRSection():New(oReport,"Estagiarios",{cAlias})
 
     

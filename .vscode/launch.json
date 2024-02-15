@@ -152,8 +152,14 @@
 		},
 		{
 			"label": "U_FWTabelaTemp"
+		},
+		{
+			"label": "U_RelatorioSemSQL"
+		},
+		{
+			"label": "U_CriaTxt"
 		}
 	],
-	"lastProgramExecuted": "U_FWTabelaTemp",
+	"lastProgramExecuted": "U_CriaTxt",
 	"lastProgramArguments": []
 }
