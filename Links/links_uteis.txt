@@ -38,3 +38,10 @@
 // @see https://tdn.totvs.com/display/tec/FClose
 // @see https://tdn.totvs.com/display/tec/File
 // @see https://tdn.totvs.com/display/tec/FErase
+// @see https://tdn.totvs.com/display/framework/FWFileWriter
+// @see https://tdn.totvs.com/display/tec/FOpen
+// @see https://tdn.totvs.com/display/tec/FSeek
+// @see https://tdn.totvs.com/display/tec/FRead
+// @see https://tdn.totvs.com/display/tec/Len
+// @see https://tdn.totvs.com/display/tec/StrTokArr
+// @see https://tdn.totvs.com/display/tec/AEVal

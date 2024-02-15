@@ -1,0 +1,51 @@
+#include 'totvs.ch'
+
+/*/{Protheus.doc} U_F0pen
+(long_description)
+@type user function
+@author David
+@since 15/02/2024
+@version 1.0
+/*/
+Function U_F0pen
+
+    Local cArquivo as character
+    Local cBuffer as character
+    Local cTexto as character
+    Local nHandle as numeric
+    Local nTamFile as numeric
+    Local ntamLidos as numeric
+    Local aLinhas as array
+    local aDados as array
+
+    rpcSetEnv('99','01')
+
+        cArquivo := 'D:\Workspace\Klaus_Udemy\Manipulando_Texto\ListaCliFor.txt'
+
+        nHandle := FOpen(cArquivo)
+
+        //TRATANDO ERROS
+        IF nHandle < 0
+            fwAlertError("ERRO AO EFETUAR A LEITURA DO ARQUIVO - CODIGO DE ERRO: " + Str(fError(),4),"ERRO")
+            rpcClearEnv()
+            Return .F.
+        EndIF
+
+        nTamFile := FSeek(nHandle,0,2)
+        FSeek(nHandle,0)
+
+        While ntamLidos < nTamFile
+            cBuffer := ''
+            ntamLidos += FRead(nHandle,@cBuffer,100)
+            cTexto += cBuffer
+        Enddo
+
+        FClose(nHandle)
+
+        aDados := array(0)
+        aLinhas := StrTokArr(cTexto,CHR(13)+CHR(10))
+        AEval(aLinhas,{|x| AAdd(aDados,StrTokArr(x," "))})
+
+    rpcClearEnv()
+
+Return

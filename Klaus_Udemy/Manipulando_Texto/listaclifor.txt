@@ -1,2 +1,20 @@
-ENTIDADE  -CODIGO-LOJA -NOME                          -DT_NASCIMENTO       
---------------------------------------------------------------------------
+ENTIDADE  CODIGOLOJA NOME                          DT_NASCIMENTO       ENTIDADE  CODIGOLOJA NOME                          DT_NASCIMENTO       
+SA1       000001    01   CLIENTE PADRAO                       /  /              
+SA1       006       1    JOS� PAULINO DA COSTA                /  /              
+SA1       007       1    ALRICELIA SILVA DA COSTA             /  /              
+SA1       01        01   AENCIO SILVA                         /  /              
+SA1       01        99   CLIENTETESTE                         /  /              
+SA1       02        99   CLIENTETESTE2                        /  /              
+SA1       03        01   ALRIELLEN SILVA                      /  /              
+SA1       05        1    SONIA MARIA DA SILVA                 /  /              
+SA1       TRANS2    01   ALRIELLEN TRANSFERENCIA  2           /  /              
+SA1       TRANSF    00   ALRIELLEN TRANSFERENCIA              /  /              
+SA2                                                           /  /              
+SA2       01        01   TENDE TUDO FORNECEDORES              /  /              
+SA2       01        99   FORNECEDOR TESTE                     /  /              
+SA2       02        99   TESTE2                               /  /              
+SA2       05        1    CACAU SHOW                           /  /              
+SA2       08        1    CACAU SHOW                           /  /              
+SA2       TRANS2    01   FORNECEDOR TRANSFERENCIA      2      /  /              
+SA2       TRANSF    00   FORNECEDOR TRANSFERENCIA             /  /              
+SA2       UNIAO     00   UNIAO                                /  /              

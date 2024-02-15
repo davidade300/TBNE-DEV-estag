@@ -1,0 +1,79 @@
+#include 'totvs.ch'
+
+Function U_CriaTxt2
+
+    Local cSaveFile as character
+    Local cBuffer as character
+    Local oArqTxt as object
+    Local lExistFile as logical
+    Local lArqTxt as logical
+    Local lWrite as logical
+
+    rpcSetEnv('99','01')
+
+        cSaveFile := 'D:\Workspace\Klaus_Udemy\Manipulando_Texto\ListaCliFor2.txt'
+        lExistFile := File(cSaveFile)
+        oArqTxt := FwfileWriter():new(cSaveFile,.F.)
+
+        IF lExistFile
+
+            lArqTxt := oArqTxt:open(2)
+
+            IF lArqTxt
+
+                oArqTxt:clear()
+
+            ELSE
+
+                FWAlertError(oArqTxt:error():message,'ERRO NA ABERTURA DO ARQUIVO')
+                rpcClearEnv()
+                Return .F.
+
+            ENDIF
+
+        ELSE
+
+            lArqTxt := oArqTxt:create() 
+
+            IF !lArqTxt
+
+                FWAlertError(oArqTxt:error():message,'ERRO NA ABERTURA DO ARQUIVO')
+                rpcClearEnv()
+                Return .F.
+
+            ENDIF
+
+        ENDIF
+ 
+        cBuffer := PadR('ENTIDADE',10) + PadR('CODIGO',6)  + PadR('LOJA',5) + PadR('NOME',30) + PadR('DT_NASCIMENTO',20)
+        lWrite := oArqTxt:write(cBuffer)
+
+        IF !lWrite
+
+            FWAlertError(oArqTxt:error():message,'ERRO NA ABERTURA DO ARQUIVO')
+                rpcClearEnv()
+                Return .F.
+
+        ENDIF
+
+        cBuffer := CRLF + strtran(space(80)," ",'-')
+        oArqTxt:write(cbuffer)
+
+        bBloco := {|| cPrefixo := substr(alias(),2,2),;
+                                  cBuffer := CRLF + ;
+                                  PadR(&(cPrefixo+"_COD"),10)  + ;
+                                  PadR(&(cPrefixo+'_LOJA'),5) + ;
+                                  PadR(&(Left(cPrefixo+'_NOME',30)),35) + ;
+                                  PadR(dtoc(&(cPrefixo+'_DTNASC')),20) + ;
+                                  PadR(alias(),10), ;
+                                  oArqTxt:write(cbuffer)}
+
+        SA1->(DBEval(bBloco))
+        SA2->(DBEval(bBloco))
+
+        oArqTxt:close()
+
+    rpcClearEnv()
+
+
+Return

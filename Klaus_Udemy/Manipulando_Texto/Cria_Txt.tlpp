@@ -26,7 +26,7 @@ Function U_CriaTxt
             Return .F.
         Endif
 
-        cBuffer := PadR('ENTIDADE',10) + '-' + PadR('CODIGO',6)  + '-' + PadR('LOJA',5) + '-' + PadR('NOME',30) + '-' + PadR('DT_NASCIMENTO',20)
+        cBuffer := PadR('ENTIDADE',10) + PadR('CODIGO',6)  + PadR('LOJA',5) + PadR('NOME',30) + PadR('DT_NASCIMENTO',20)
         nBuffer := Len(cBuffer)
 
         nWrite := FWrite(nHandle,cBuffer)
@@ -38,7 +38,7 @@ Function U_CriaTxt
             Return .F.
         Endif 
 
-        cBuffer := CRLF + strtran(Space(74)," ","-")
+        
         nBuffer := Len(cBuffer)
 
         nWrite := FWrite(nHandle,cBuffer)
@@ -50,10 +50,23 @@ Function U_CriaTxt
             Return .F.
         Endif
 
+        cPrefixo := ''
+        bBloco := {|| cPrefixo := substr(alias(),2,2),;
+                                  cBuffer := CRLF + ;
+                                  PadR(alias(),10) + ;
+                                  PadR(&(cPrefixo+"_COD"),10)  + ;
+                                  PadR(&(cPrefixo+'_LOJA'),5) + ;
+                                  PadR(&(Left(cPrefixo+'_NOME',30)),35) + ;
+                                  PadR(dtoc(&(cPrefixo+'_DTNASC')),20), ;
+                                  FWrite(nHandle, cBuffer)}
+
+        SA1->(DBEval(bBloco))
+        SA2->(DBEval(bBloco))
+
         FClose(nHandle)
 
     rpcClearEnv()
 
-    // continuar a aula aos 20:51
+
 
 Return

@@ -158,8 +158,17 @@
 		},
 		{
 			"label": "U_CriaTxt"
+		},
+		{
+			"label": "U_CriaTxt2"
+		},
+		{
+			"label": "U_CRIAR_ARQUIVO_TEXTO_2"
+		},
+		{
+			"label": "U_F0pen"
 		}
 	],
-	"lastProgramExecuted": "U_CriaTxt",
+	"lastProgramExecuted": "U_F0pen",
 	"lastProgramArguments": []
 }
