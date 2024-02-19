@@ -170,8 +170,17 @@
 		},
 		{
 			"label": "U_FVVFileReader"
+		},
+		{
+			"label": "U_NFornec"
+		},
+		{
+			"label": "sigamdi"
+		},
+		{
+			"label": "U_NOVO_FORNECEDOR"
 		}
 	],
-	"lastProgramExecuted": "U_FVVFileReader",
+	"lastProgramExecuted": "sigamdi",
 	"lastProgramArguments": []
 }

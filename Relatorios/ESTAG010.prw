@@ -14,7 +14,7 @@
 User Function ESTAG010
 	
     Public cAlias := "ZA1"
-
+ 
     Private cCadastro := "Cadastro de Pessoas estag"
 
     Private aRotina     := { }
@@ -25,7 +25,7 @@ User Function ESTAG010
     AADD(aRotina, { "Alterar"     , "AxAltera"  , 0, 4 })
     AADD(aRotina, { "Excluir"     , "AxDeleta" , 0, 5 })
     AADD(aRotina, {  "Relatorio",      "U_TrptZA()",   0,6})
-    //AADD(aRotina, {  "Relatorio",      "U_wSQLRel",   0,6})
+    AADD(aRotina, {  "NFornec",      "U_NOVO_FORNECEDOR",   0,3})
 
     dbSelectArea(cAlias)
     dbSetOrder(1)
