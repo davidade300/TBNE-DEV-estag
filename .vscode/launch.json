@@ -179,8 +179,14 @@
 		},
 		{
 			"label": "U_NOVO_FORNECEDOR"
+		},
+		{
+			"label": "U_NFornec2"
+		},
+		{
+			"label": "SIGAFIN"
 		}
 	],
-	"lastProgramExecuted": "sigamdi",
+	"lastProgramExecuted": "SIGACFG",
 	"lastProgramArguments": []
 }
