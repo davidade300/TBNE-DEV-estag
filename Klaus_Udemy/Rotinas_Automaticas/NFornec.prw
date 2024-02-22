@@ -60,7 +60,7 @@ User Function NFornec
     AAdd(aDados,{'A2_CGC', MV_PAR01, NIL})
     AAdd(aDados,{'A2_NOME',cNome,NIL})
     AAdd(aDados,{'A2_NREDUZ',cNomeRed,NIL})
-    AAdd(aDados,{'A2_END',NIL})
+    AAdd(aDados,{'A2_END',cEndereco,NIL})
     AAdd(aDados,{'A2_EST',cEstado,NIL})
     AAdd(aDados,{'A2_BAIRRO',cBairro,NIL})
     AAdd(aDados,{'A2_COD_MUN',cCodMun,NIL})

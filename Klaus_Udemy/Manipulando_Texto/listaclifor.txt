@@ -1,6 +1,6 @@
 ENTIDADE  CODIGOLOJA NOME                          DT_NASCIMENTO       ENTIDADE  CODIGOLOJA NOME                          DT_NASCIMENTO       
 SA1       000001    01   CLIENTE PADRAO                       /  /              
-SA1       006       1    JOSï¿½ PAULINO DA COSTA                /  /              
+SA1       006       1    JOSÉ PAULINO DA COSTA                /  /              
 SA1       007       1    ALRICELIA SILVA DA COSTA             /  /              
 SA1       01        01   AENCIO SILVA                         /  /              
 SA1       01        99   CLIENTETESTE                         /  /              
@@ -12,9 +12,15 @@ SA1       TRANSF    00   ALRIELLEN TRANSFERENCIA              /  /
 SA2                                                           /  /              
 SA2       01        01   TENDE TUDO FORNECEDORES              /  /              
 SA2       01        99   FORNECEDOR TESTE                     /  /              
+SA2       02        02   FILIAL TESTE                         /  /              
 SA2       02        99   TESTE2                               /  /              
 SA2       05        1    CACAU SHOW                           /  /              
 SA2       08        1    CACAU SHOW                           /  /              
-SA2       TRANS2    01   FORNECEDOR TRANSFERENCIA      2      /  /              
-SA2       TRANSF    00   FORNECEDOR TRANSFERENCIA             /  /              
+SA2       08030     01   SUPERMERCADO NORDESTÃO LTDA          /  /              
+SA2       09        01   DAVID ADERALDO DE OLIVEIRA           /  /              
+SA2       989473    01   FORNECEDOR TESTE                     /  /              
+SA2       TRANSH    01   AMPLVS TECNOLOGIA DA INFORMACAO LTD09/07/21            
+SA2       TRANSJ    01   AMPLVS CONSULTORIA EM TECNOLOGIA DA25/01/19            
+SA2       TRANSK    01   AMPLVS CONSULTORIA EM TECNOLOGIA DA25/01/19            
+SA2       TRANSL    01   AMPLVS CONSULTORIA EM TECNOLOGIA DA08/07/21            
 SA2       UNIAO     00   UNIAO                                /  /              

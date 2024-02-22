@@ -185,8 +185,15 @@
 		},
 		{
 			"label": "SIGAFIN"
+		},
+		{
+			"args": [],
+			"label": "U_MyCod128"
+		},
+		{
+			"label": "U_WORK_ARQUIVO_TEMPORARIO_3"
 		}
 	],
-	"lastProgramExecuted": "SIGACFG",
+	"lastProgramExecuted": "SIGAATF",
 	"lastProgramArguments": []
 }
