@@ -27,6 +27,7 @@ User Function ESTAG010
     AADD(aRotina, {  "Relatorio",      "U_TrptZA()",   0,6})
     AADD(aRotina, {  "NFornec",      "U_NFornec",   0,3})
     AADD(aRotina, {  "Relatorio2",      "U_Rel4qjos",   0,6})
+    AADD(aRotina, {  "Relatorio3",      "U_Trpt002()",   0,6})
     
 
     dbSelectArea(cAlias)

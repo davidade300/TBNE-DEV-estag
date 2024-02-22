@@ -22,55 +22,65 @@ Static Function ReportDef()
 
     oReport := TReport():new('Rel4qjos','listagem de items por NF, Fornecedor e Data','',{|oReport| PrintReport(oReport)},'listagem de items por NF, Fornecedor e Data')
     
-    oSection1 := TRsection():new(oReport, 'Cabeçalho',{'SF1','SA2'})
+    oSection1 := TRsection():new(oReport, 'Cabeçalho',{'SF1'})
 
-    TRCell():new(oSection1,'SF1_DOC','SF1')
-    TRCell():new(oSection1,'SF1_SERIE','SF1')
-    TRCell():new(oSection1,'SA2_NOME','SA2')    
-    TRCell():new(oSection1,'SF1_EMISSAO','SF1')
+    TRCell():new(oSection1,'F1_DOC','SF1')
+    //TRCell():new(oSection1,'F1_SERIE','SF1')
+    TRCell():new(oSection1,'A2_NOME','SA2')
+    TRCell():new(oSection1,'F1_FORNECE','SF1')    
+    TRCell():new(oSection1,'F1_EMISSAO','SF1')
 
-    oSection2 := TRsection():new(oReport, 'Itens da nota',{'SD1','SB1'})
+    oSection2 := TRsection():new(oReport, 'Itens da nota',{'SD1'})
 
-    TRCell():new(oSection2,'SD1_DOC','SD1')
-    TRCell():new(oSection2,'SD1_COD','SD1')
-    TRCell():new(oSection2,'SB1_DESC','SB1')    
-    TRCell():new(oSection2,'SD1_QUANT','SD1')
-    TRCell():new(oSection2,'SD1_VUNIT','SD1')
-    TRCell():new(oSection2,'SD1_TOTAL','SD1')
+    TRCell():new(oSection2,'D1_ITEM','SD1')
+    TRCell():new(oSection2,'D1_COD','SD1')
+    TRCell():new(oSection2,'B1_DESC','SB1')    
+    TRCell():new(oSection2,'D1_QUANT','SD1')
+    TRCell():new(oSection2,'D1_VUNIT','SD1')
+    TRCell():new(oSection2,'D1_TOTAL','SD1')
 
 Return
  
 Static Function PrintReport(oReport)
 
+    Local nTNotal := 0 ;
+
     Local oSection1 := oReport:Section(1)
     Local oSection2 := oReport:Section(2)
-
-    oSection1:init()
-    oSection1:PrintLine()
-
-    oSection2:Init()
-
+    
     SF1->(DBSetOrder(1))
-    SF1->(DBSeek(cSeek := xFilial('SF1')+SA2->A2_NOME))
+    SF1->(DBSeeK(cSeek := Xfilial('SF1') + SD1->D1_DOC))
 
-    // ajeitar a logica, refaz essa mizera
+    SD1->(DBGoTop())
+    SF1->(DBGoTop())
+    
+     while SF1->(!eof())
 
-    //loop externo (cabeçalho + fornecedor)
-    While !SF1->(!eof() .AND. cSeek == SA2->(SF1_DOC+SF1_FORNECE))
-        
+        Posicione("SA2",1,Xfilial("SA2")+SF1->F1_FORNECE,"A2_Nome")
+
+        oSection1:init()    
         oSection1:PrintLine()
-        SF1->(DBSeek(cSeek := xFilial('SF1')+SD1->D1_DOC))
+        oSection1:Finish()
 
-        while !SF1->(!eof() .AND. cSeek == SF1->(F1_DOC+F1_FORNECE))
+        oSection2:init()
+        nTNotal += SD1->(D1_TOTAL)
 
-        oSection2:PrintLine()
-        SD1->(DBSkip())
-        Enddo
-        SF1->(DBSkip())
-    Enddo
+        while SD1->(!eof()) .And. (SD1->(D1_DOC) == SF1->(F1_DOC))
 
-    oSection1:Finish()
-    oSection2:Finish()
+            Posicione("SB1",1,Xfilial("SB1")+SD1->D1_COD,"B1_DESC")
+            
+            oSection2:PrintLine()                
+
+            SD1->(DbSkip())
+                
+        enddo
+            //oReport:ThinLine()
+            // logica de impressão do total
+        oSection2:Finish()
+
+        SF1->(DbSkip())
+        
+    enddo
 
     oReport:EndPage()
 
