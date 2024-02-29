@@ -192,8 +192,11 @@
 		},
 		{
 			"label": "U_WORK_ARQUIVO_TEMPORARIO_3"
+		},
+		{
+			"label": "TOTPC001"
 		}
 	],
-	"lastProgramExecuted": "SIGAATF",
+	"lastProgramExecuted": "TOTPC001",
 	"lastProgramArguments": []
 }
