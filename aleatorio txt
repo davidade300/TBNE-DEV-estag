@@ -1,0 +1,9 @@
+Funções:
+    Vazio()
+        retorna true se o campo estiver vazio.
+    
+    existCpo("tabela","chaveDebusca(opicional)","indiceDeBusca(opicional)")
+        verifica se certa chaveDebusca existe
+
+    posicione("tabeladeconsulta","indice",xFilial("tabeladeconsulta")+chaveDebusca,campoRetornado)
+        retorna um campo a partir de uma chaveDebusca

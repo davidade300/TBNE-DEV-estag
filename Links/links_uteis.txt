@@ -47,3 +47,10 @@
 // @see https://tdn.totvs.com/display/tec/AEVal
 // @see https://tdn.totvs.com/display/public/framework/FWFileReader
 // @see https://tdn.totvs.com/display/tec/ASort
+// @see https://tdn.totvs.com/pages/viewpage.action?pageId=24346981 (mBrowse   ) 
+// @see https://tdn.totvs.com/pages/viewpage.action?pageId=23889143 (axPesqui  )
+// @see https://tdn.totvs.com/pages/viewpage.action?pageId=23889145 (axVisual  ) 
+// @see https://tdn.totvs.com/pages/viewpage.action?pageId=23889141 (axInclui  )
+// @see https://tdn.totvs.com/pages/viewpage.action?pageId=23889132 (axAltera  )
+// @see https://tdn.totvs.com/pages/viewpage.action?pageId=23889138 (axDeleta  )
+// @see https://tdn.totvs.com/pages/viewpage.action?pageId=23889136 (axCadastro)

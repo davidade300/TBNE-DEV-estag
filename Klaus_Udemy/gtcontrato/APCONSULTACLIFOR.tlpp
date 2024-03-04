@@ -1,0 +1,39 @@
+#include 'totvs.ch'
+
+/*/{Protheus.doc} 
+(long_description)
+@type user function
+@author user
+@since 04/03/2024
+@version version
+@param param_name, param_type, param_descr
+@return return_var, return_type, return_description
+@example
+(examples)
+@see (links_or_references)
+/*/
+Function U_CONSULTACLIFOR 
+
+    If type("cCodClienteFornecedor") == "C"
+        cCodClienteFornecedor := Space(tamSX3("A1_COD")[1])
+        cLojaClienteFOrnecedor := Space(tamSX3("A1_LOJA")[1])
+    Else
+        public cCodClienteFornecedor := Space(tamSX3("A1_COD")[1]) as character
+        public cLojaClienteFOrnecedor := Space(tamSX3("A1_LOJA")[1]) as character
+    EndIf
+
+    If M->Z51_TPINT == "C" //-- INTEGRACAO COM CADASTRO DE FORNECEDORES
+        If conpad1(,,,"SA2")
+            cCodClienteFornecedor := SA2->A2_COD
+            cLojaClienteFOrnecedor := SA2->A2_LOJA
+            Return .T.
+        EndIf
+    Else //-- INTEGRACAO COM CADASTRO DE CLIENTES
+        If conpad1(,,,"SA1")
+            cCodClienteFornecedor := SA1->A1_COD
+            cLojaClienteFOrnecedor := SA1->A1_LOJA
+            Return .T.
+        EndIf
+    EndIf
+
+Return .F.
