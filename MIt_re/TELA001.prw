@@ -16,7 +16,7 @@ USER FUNCTION TELA001()
 
     oBrowse:setAlias('ZB1')                                    //TABELA ATIVA, SERIA O MESMO DE UTILIZAR AS FUNÇÕES dbSelectArea() e dbSetOrder()
     oBrowse:setDescription('Cadastro de Prestação de Contas')  //TÍTULO DA TELA
-    oBrowse:setExecuteDef(4)                                   //DETERMINA A ROTINA PADRÃO AO REALIZAR UM DUPLO CLIQUE EM UM REGISTRO
+    oBrowse:setExecuteDef(2)                                   //DETERMINA A ROTINA PADRÃO AO REALIZAR UM DUPLO CLIQUE EM UM REGISTRO
     //oBrowse:AddLegend("ZB1_STATUS == 'EMA'",'WHITE', "Em Aberto" )
     //oBrowse:AddLegend("ZB1_STATUS == 'EFT'",'GREEN', "Efetivado" )
     //oBrowse:AddLegend("ZB1_STATUS == 'REV'",'YELLOW',"Revisão"   )
@@ -100,7 +100,7 @@ RETURN oModel
 /*/{Protheus.doc} FNMODPOS
 VALIDAÇÃO REALIZADA NO MOMENTO QUE O USUÁRIO CONFIRMAR O REGISTRO.
 @type Static Function
-@author Reno Neto
+@author David
 @since 01/03/2024
 /*/
 STATIC FUNCTION FNMODPOS(oModel)
@@ -136,11 +136,3 @@ STATIC FUNCTION FNMODPOS(oModel)
     ENDIF
 
 RETURN lValid
-
-
-//FUNCAO PARA FILTRAR O BROWSE DE ACORDO COM O USUARIO
-// User Function PCFILTR
-//     IF (RETCODUSR() != getMV(MZ_APRPC)) 
-//         Posicione("ZB1",1,Xfilial("ZB1")+ZB1->ZB1_USRCOD,ZB1_COD) 
-//     ENDIF
-// RETURN
