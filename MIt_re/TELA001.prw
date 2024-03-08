@@ -24,7 +24,7 @@ USER FUNCTION TELA001()
     //oBrowse:AddLegend("ZB1_STATUS == 'APR'",'RED',   "Aprovado"  )
 
      //FILTRO: MOSTRA PRESTAÇÃO / USUÁRIO
-    oBrowse:setFilterDefault("RETCODUSR() == GETMV('MZ_APRPC') .OR. ZB1->(ZB1_USRCOD) = RETCODUSR()")
+    oBrowse:setFilterDefault("RETCODUSR() == GETMV('MZ_APRPC') .OR. ZB1->(ZB1_USRCOD) == RETCODUSR()")
 
     oBrowse:activate()                                        //REALIZA A ABERTURA DA TELA
 
@@ -132,7 +132,6 @@ STATIC FUNCTION FNMODPOS(oModel)
             oModel:setErrorMessage(,,,,"Não é possível realizar a inclusão","Cadastro já existente, inclusão não permitida.")
             RETURN .F.
         ENDIF
-
     ENDIF
 
 RETURN lValid
