@@ -1,4 +1,5 @@
 #include 'totvs.ch'
+#include 'Parmtype.ch'
 #INCLUDE 'FWMVCDEF.CH'
 
 User Function ADVPLA03()
@@ -25,3 +26,28 @@ Static Function MenuDef()
 
 Return aRotina
 
+Static Function ModelDef()
+
+    Local oModel
+    Local oStruZZ3 := FWFormStruct(1,"ZZ3",)
+
+    oModel := mpFormModel():new("MD_ZZ3")
+    oModel:addFields('MASTERZZ3',,oStruZZ3)
+    oModel:setPrimaryKey({'ZZ3_FILIAL', 'ZZ3_CODIGO'})
+
+Return oModel
+
+Static Function ViewDef()
+
+    Local oModel := ModelDef()
+    Local oView
+    Local oStrZZ3 := FWFormStruct(2, 'ZZ3')
+
+    oView := fwFormView():new()
+    oView:setModel(oModel)
+
+    oView:addField('FORM_ZZ3', oStrZZ3, 'MASTERZZ3')
+    oView:createHorizontalBox('BOX_FORM_ZZ3', 100)
+    oView:setOwnerView('FORM_ZZ3','BOX_FORM_ZZ3')
+
+Return oView
