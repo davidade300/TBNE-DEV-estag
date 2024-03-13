@@ -29,6 +29,7 @@ Static Function MenuDef()
     ADD OPTION aRotina Title 'Excluir'    Action 'VIEWDEF.ADVPLA04' OPERATION 5 ACCESS 0
     ADD OPTION aRotina Title 'Imprimir'   Action 'VIEWDEF.ADVPLA04' OPERATION 8 ACCESS 0
     ADD OPTION aRotina Title 'Copiar'     Action 'VIEWDEF.ADVPLA04' OPERATION 9 ACCESS 0
+    ADD OPTION aRotina Title 'Efetivar'   Action 'U_ADPLA04B()'     OPERATION 4 ACCESS 0
 
 Return aRotina
 
@@ -103,31 +104,45 @@ User Function ADVPL04A(oModelZZ5)
 Return .T.
 
 User Function ADPLA04B()
+
     aVetSE2 := array(0)
 
     Local cPrefix := SuperGetMV('MS_PREFIXO', .F., 'ADV')
     Local cTipo := SuperGetMV('MS_TIPO', .F., 'NF')
-    Local cNatureza := SuperGetMV('MS_NATUREZ', .F., 'DIVERSOS')
-    Local cFornece := SuperGetMV('MS_FORNECE', .F., '000001')
+    Local cNatureza := SuperGetMV('MS_NATUREZ', .F., '001')
+    Local cFornece := SuperGetMV('MS_FORNECE', .F., 'TRANSH')
     Local cLoja := SuperGetMV('MS_LOJA', .F., '01')
 
     Private lMsErroAuto := .F.
 
-    aAdd(aVetSE2, {"E2_PREFIXO", cPrefix,           Nil})
-    aAdd(aVetSE2, {"E2_TIPO",    cTipo,             Nil})
-    aAdd(aVetSE2, {"E2_NATUREZ", cNatureza,         Nil})
-    aAdd(aVetSE2, {"E2_FORNECE", cFornece,          Nil})
-    aAdd(aVetSE2, {"E2_Loja",    cLoja,             Nil})
-    aAdd(aVetSE2, {"E2_EMISSAO", dDataBase,         Nil})
-    aAdd(aVetSE2, {"E2_VENCTO",  dDataBase + 30,    Nil})
-    aAdd(aVetSE2, {"E2_VALOR",   ZZ4->ZZ4_TOTAL,    Nil})
+    If ZZ4->ZZ4_STATUS == 'A'
+        if MsgYesNo('Confirma a efetivação?')
+            
+            aAdd(aVetSE2, {"E2_NUM",     000000001,         Nil})
+            aAdd(aVetSE2, {"E2_PREFIXO", cPrefix,           Nil})
+            aAdd(aVetSE2, {"E2_TIPO",    cTipo,             Nil})
+            aAdd(aVetSE2, {"E2_NATUREZ", cNatureza,         Nil})
+            aAdd(aVetSE2, {"E2_FORNECE", cFornece,          Nil})
+            aAdd(aVetSE2, {"E2_Loja",    cLoja,             Nil})
+            aAdd(aVetSE2, {"E2_EMISSAO", dDataBase,         Nil})
+            aAdd(aVetSE2, {"E2_VENCTO",  dDataBase + 7,     Nil})
+            aAdd(aVetSE2, {"E2_VALOR",   ZZ4->ZZ4_TOTAL,    Nil})
 
-    iF lMsErroAuto
-        MostraErro()
-    Else
-        ApMsgInfo("Título incluído com sucesso!")
-    EndIF
+            msExecAuto({|x, y, z| FINA050(x, y, z)},aVetSE2,, 3)
 
-    msExecAuto({|x, y, z| FINA050(x, y, z)},aVetSE2,, 3)
+            iF lMsErroAuto
+                MostraErro()
+            Else
+                Reclock('ZZ4', .F.)
+                    ZZ4->ZZ4_STATUS := 'E'
+                ZZ4->(msUnlock())
 
+                ApMsgInfo("Título incluído com sucesso!")
+            EndIF
+
+        endif
+
+    else
+        MsgAlert('Só é possível efetivar um movimento aberto.')
+    EndIF    
 Return
