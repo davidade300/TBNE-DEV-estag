@@ -30,6 +30,7 @@ Static Function MenuDef()
     ADD OPTION aRotina Title 'Imprimir'   Action 'VIEWDEF.ADVPLA04' OPERATION 8 ACCESS 0
     ADD OPTION aRotina Title 'Copiar'     Action 'VIEWDEF.ADVPLA04' OPERATION 9 ACCESS 0
     ADD OPTION aRotina Title 'Efetivar'   Action 'U_ADPLA04B()'     OPERATION 4 ACCESS 0
+    ADD OPTION aRotina Title 'cancelar'   Action 'U_ADPLA04C()'     OPERATION 4 ACCESS 0
 
 Return aRotina
 
@@ -115,6 +116,7 @@ User Function ADPLA04B()
 
     Private lMsErroAuto := .F.
 
+
     If ZZ4->ZZ4_STATUS == 'A'
         if MsgYesNo('Confirma a efetivação?')
             
@@ -126,6 +128,7 @@ User Function ADPLA04B()
             aAdd(aVetSE2, {"E2_Loja",    cLoja,             Nil})
             aAdd(aVetSE2, {"E2_EMISSAO", dDataBase,         Nil})
             aAdd(aVetSE2, {"E2_VENCTO",  dDataBase + 7,     Nil})
+            aAdd(aVetSE2, {"E2_YCODZZ4", ZZ4->ZZ4_CODIGO,   Nil})
             aAdd(aVetSE2, {"E2_VALOR",   ZZ4->ZZ4_TOTAL,    Nil})
 
             msExecAuto({|x, y, z| FINA050(x, y, z)},aVetSE2,, 3)
@@ -144,5 +147,50 @@ User Function ADPLA04B()
 
     else
         MsgAlert('Só é possível efetivar um movimento aberto.')
+    EndIF    
+Return
+
+User Function ADPLA04C()
+
+    aVetSE2 := array(0)
+
+    Private lMsErroAuto := .F.
+
+
+    //                 esta contido
+    If ZZ4->ZZ4_STATUS $ 'A,E'
+        if MsgYesNo('Confirma a efetivação?')
+
+            IF ZZ4->ZZ4_STATUS == 'E'
+                SE2->(DBOrderNickname('E2YCODZZ4'))
+
+                IF SE2->(DBSeek(xFilial('SE2') + ZZ4->ZZ4_CODIGO))
+
+                    aAdd(aVetSE2, {"E2_NUM",     SE2->E2_NUM,              Nil})
+                    aAdd(aVetSE2, {"E2_PREFIXO", SE2->E2_PREFIXO,          Nil})
+                    aAdd(aVetSE2, {"E2_TIPO",    SE2->E2_TIPO,             Nil})
+                    aAdd(aVetSE2, {"E2_PARCELA", SE2->E2_PARCELA,          Nil})
+                    aAdd(aVetSE2, {"E2_FORNECE", SE2->E2_FORNECE,          Nil})
+                    aAdd(aVetSE2, {"E2_Loja",    SE2->E2_Loja,             Nil})
+
+                    SE2->(DBSetOrder(1))
+                    msExecAuto({|x, y, z| FINA050(x, y, z)},aVetSE2,, 5)
+
+                    iF lMsErroAuto
+                        MostraErro()
+                    Else
+                        Reclock('ZZ4', .F.)
+                            ZZ4->ZZ4_STATUS := 'E'
+                        ZZ4->(msUnlock())
+
+                        ApMsgInfo("Título excluído com sucesso!", "Atenção")
+                    EndIF
+                endif    
+            endif
+        else
+            Reclock('ZZ4', .F.)
+            ZZ4->ZZ4_STATUS := 'E'
+            ZZ4->(msUnlock())
+        endif
     EndIF    
 Return

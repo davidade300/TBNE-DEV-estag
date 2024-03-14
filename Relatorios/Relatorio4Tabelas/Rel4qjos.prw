@@ -56,7 +56,7 @@ Static Function PrintReport(oReport)
     SD1->(DBGoTop())
     SF1->(DBGoTop())
     
-     while SF1->(!eof())
+    while SF1->(!eof())
 
         Posicione("SA2",1,Xfilial("SA2")+SF1->F1_FORNECE,"A2_Nome")//A2_FILIAL+A2_COD+A2_LOJA                                                                                                                                        
 

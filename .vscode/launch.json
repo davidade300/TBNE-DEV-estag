@@ -198,8 +198,11 @@
 		},
 		{
 			"label": "U_TOTPC002"
+		},
+		{
+			"label": "apsdu"
 		}
 	],
-	"lastProgramExecuted": "SIGAATF",
+	"lastProgramExecuted": "apsdu",
 	"lastProgramArguments": []
 }
