@@ -1,0 +1,12 @@
+// @See https://tdn.totvs.com/pages/releaseview.action?pageId=2857410
+// @see https://tdn.totvs.com.br/display/framework/Classe_Acervo
+// @see https://tdn.totvs.com.br/display/framework/FWMBrowse 
+// @see https://tdn.totvs.com/display/framework/MPFormModel 
+// @see https://tdn.totvs.com/display/framework/FWFormStruct 
+// @see https://tdn.totvs.com/display/framework/FwStruTrigger 
+// @see https://tdn.totvs.com/display/framework/FWLoadModel 
+// @see https://tdn.totvs.com/display/framework/FWFormView 
+// @see https://tdn.totvs.com/display/framework/FWFormCommit 
+// @see https://tdn.totvs.com/display/framework/FWFormCancel 
+// @see https://tdn.totvs.com/display/framework/FWModelActive
+I

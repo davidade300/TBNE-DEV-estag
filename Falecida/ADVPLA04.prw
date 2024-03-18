@@ -118,6 +118,7 @@ User Function ADPLA04B()
 
 
     If ZZ4->ZZ4_STATUS == 'A'
+    
         if MsgYesNo('Confirma a efetivação?')
             
             aAdd(aVetSE2, {"E2_NUM",     000000001,         Nil})
@@ -128,7 +129,7 @@ User Function ADPLA04B()
             aAdd(aVetSE2, {"E2_Loja",    cLoja,             Nil})
             aAdd(aVetSE2, {"E2_EMISSAO", dDataBase,         Nil})
             aAdd(aVetSE2, {"E2_VENCTO",  dDataBase + 7,     Nil})
-            aAdd(aVetSE2, {"E2_YCODZZ4", ZZ4->ZZ4_CODIGO,   Nil})
+            //aAdd(aVetSE2, {"E2_YCODZZ4", ZZ4->ZZ4_CODIGO,   Nil})
             aAdd(aVetSE2, {"E2_VALOR",   ZZ4->ZZ4_TOTAL,    Nil})
 
             msExecAuto({|x, y, z| FINA050(x, y, z)},aVetSE2,, 3)
